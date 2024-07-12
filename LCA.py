@@ -6,7 +6,11 @@ import plotly.express as px
 import plotly.graph_objects as go
 from streamlit_option_menu import option_menu
 st.set_page_config(layout='wide',page_title='LCA',page_icon='bar_chart')
-st.title('LIFE CYCLE ANALYSIS')
+col50,col51=st.columns([1,2])
+with col50:
+    st.imgage('LCA SYMBOL IMAGE.png')
+with col51:    
+    st.title('LIFE CYCLE ANALYSIS')
 glass=pd.read_excel('Data\GLASS.xlsx')
 plastic=pd.read_excel('Data\Plastics.xlsx')
 metal=pd.read_excel('Data\Metal.xlsx')
