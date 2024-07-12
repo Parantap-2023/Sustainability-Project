@@ -8,8 +8,8 @@ with col50:
     st.image('LCA SYMBOL IMAGE.png')
 with col51:    
     st.title('LIFE CYCLE ANALYSIS')
-glass=pd.read_excel('Data/GLASS.xlsx')
-plastic=pd.read_excel('Data/Plastics.xlsx')
+glass=pd.read_excel('GLASS.xlsx')
+plastic=pd.read_excel('Plastics.xlsx')
 metal=pd.read_excel('Data/Metal.xlsx')
 material_type=['Plastic','Metal']
 pcr_factors=pd.read_excel('Data/PCR_FACTORS.xlsx')
