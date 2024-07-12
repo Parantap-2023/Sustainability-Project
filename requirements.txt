@@ -1,2 +1,3 @@
 plotly
 streamlit-option-menu
+openpyxl
