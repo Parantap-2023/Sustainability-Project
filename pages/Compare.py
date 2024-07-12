@@ -4,18 +4,18 @@ import plotly.express as px
 from streamlit_option_menu import option_menu
 st.set_page_config(layout='wide',page_title='LCA',page_icon='bar_chart')
 st.title('Compare (Scenario Planning)')
-glass=pd.read_excel('Data\GLASS.xlsx')
-plastic=pd.read_excel('Data\Plastics.xlsx')
-metal=pd.read_excel('Data\Metal.xlsx')
-material_type=['Plastic','Metal','Glass']
-pcr_factors=pd.read_excel('Data\PCR_FACTORS.xlsx')
+glass=pd.read_excel('Data/GLASS.xlsx')
+plastic=pd.read_excel('Data/Plastics.xlsx')
+metal=pd.read_excel('Data/Metal.xlsx')
+material_type=['Plastic','Metal']
+pcr_factors=pd.read_excel('Data/PCR_FACTORS.xlsx')
 pcr_factors=pcr_factors.fillna(0)
-metal_processing=pd.read_excel('Data\Metal Processing.xlsx')
-plastic_processing=pd.read_excel('Data\Plastic Processing.xlsx')
-transport=pd.read_excel('Data\Transport.xlsx')
-eol=pd.read_excel('Data\End Of Life.xlsx')
+metal_processing=pd.read_excel('Data/Metal Processing.xlsx')
+plastic_processing=pd.read_excel('Data/Plastic Processing.xlsx')
+transport=pd.read_excel('Data/Transport.xlsx')
+eol=pd.read_excel('Data/End Of Life.xlsx')
 eol=eol.fillna(0)
-eol_data=pd.read_excel('Data\End Of Life Data.xlsx')
+eol_data=pd.read_excel('Data/End Of Life Data.xlsx')
 
 def raw_material_user_input_1():
     metal_weight=0
