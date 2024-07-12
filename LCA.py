@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 from streamlit_option_menu import option_menu
 st.set_page_config(layout='wide',page_title='LCA',page_icon='bar_chart')
-col50,col51=st.columns([1,18])
+col50,col51=st.columns([1,16])
 with col50:
     st.image('LCA SYMBOL IMAGE.png',width=80)
 with col51:    
