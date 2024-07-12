@@ -8,18 +8,18 @@ with col50:
     st.image('LCA SYMBOL IMAGE.png')
 with col51:    
     st.title('LIFE CYCLE ANALYSIS')
-glass=pd.read_excel('Data\GLASS.xlsx')
-plastic=pd.read_excel('Data\Plastics.xlsx')
-metal=pd.read_excel('Data\Metal.xlsx')
-material_type=['Plastic','Metal','Glass']
-pcr_factors=pd.read_excel('Data\PCR_FACTORS.xlsx')
+glass=pd.read_excel('Data/GLASS.xlsx')
+plastic=pd.read_excel('Data/Plastics.xlsx')
+metal=pd.read_excel('Data/Metal.xlsx')
+material_type=['Plastic','Metal']
+pcr_factors=pd.read_excel('Data/PCR_FACTORS.xlsx')
 pcr_factors=pcr_factors.fillna(0)
-metal_processing=pd.read_excel('Data\Metal Processing.xlsx')
-plastic_processing=pd.read_excel('Data\Plastic Processing.xlsx')
-transport=pd.read_excel('Data\Transport.xlsx')
-eol=pd.read_excel('Data\End Of Life.xlsx')
+metal_processing=pd.read_excel('Data/Metal Processing.xlsx')
+plastic_processing=pd.read_excel('Data/Plastic Processing.xlsx')
+transport=pd.read_excel('Data/Transport.xlsx')
+eol=pd.read_excel('Data/End Of Life.xlsx')
 eol=eol.fillna(0)
-eol_data=pd.read_excel('Data\End Of Life Data.xlsx')
+eol_data=pd.read_excel('Data/End Of Life Data.xlsx')
 
 def raw_material_user_input():
     metal_weight=0
