@@ -167,12 +167,11 @@ raw_material_user_input_,plastic_weight,glass_weight,metal_weight,material,manuf
 incoming_transport_input_,incoming_transport_footprint=incoming_transport_input()
 distribution_transport_input_,distribution_transport_footprint=distribution_transport_input()
 eol_value=eol_caluclation(plastic_weight,glass_weight,metal_weight,raw_material_user_input_)
-st.write(eol_value)
 Material=float(material)*1000
 
 Manufacturing=float(manufacturing)*1000
 Transport=(incoming_transport_footprint+distribution_transport_footprint)*1000
-graph_data={'Category':['Material','Manufacturing','Transport'],'CO2 Equivalent in grs':[Material,Manufacturing,Transport]}
+graph_data={'Category':['Material','Manufacturing','Transport','End of Life'],'CO2 Equivalent in grs':[Material,Manufacturing,Transport,eol_value]}
 graph_data=pd.DataFrame(graph_data)
 
 st.header('Overall Analysis')
