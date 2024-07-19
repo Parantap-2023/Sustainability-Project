@@ -69,8 +69,6 @@ def raw_material_user_input():
     _component_material_footprint=(_weight_including_waste*_component_ef)/10000
     _component_production_footprint=(_weight_including_waste*_component_production_ef)/10000
     _recycle_factor=pcr_factors.loc[pcr_factors['Component']==_component_specific_type].values[0][1]*int(_component_pcr_factor[0:2])
-    st.write(_recycle_factor)
-    st.write(float(_component_material_footprint)+_component_production_footprint)
     _total_footprint=float(_component_material_footprint)+_component_production_footprint-(_recycle_factor)
     input_data={'component_name':_component_name,
                 'component_weight':_component_weight,
@@ -163,7 +161,6 @@ def eol_caluclation(plastic_,glass_,metal_,input_data):
     eol_lf_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
     eol_efw_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
     final_eol_value=eol_lf_value+eol_efw_value
-    st.write(final_eol_value)
     return(final_eol_value)
 raw_material_user_input_,plastic_weight,glass_weight,metal_weight,material,manufacturing=raw_material_user_input()
 incoming_transport_input_,incoming_transport_footprint=incoming_transport_input()
