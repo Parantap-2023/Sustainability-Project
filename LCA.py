@@ -146,6 +146,7 @@ def distribution_transport_input():
 def eol_caluclation(plastic,glass,metal,input_data):
     st.title('End OF Life')
     st.table(input_data)
+    st.table(eol)
     eol_lf={'Metal':0,'Plastic':'Disposal, plastics, mixture, 15.3% water, to sanitary landfill/CH S','Glass':0}
     eol_efw={'Metal':0,'Plastic':'Disposal, plastics, mixture, 15.3% water, to municipal incineration/CH S','Glass':0}
     _type_of_recycle=st.selectbox("Type of Recycle",['Unrecyclable','Noraml Recycling','Milk and Detergents'])
