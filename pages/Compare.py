@@ -80,7 +80,7 @@ def raw_material_user_input_1():
 
     #st.table(input_dataframe)
     
-    return (input_data,plastic,glass,metal,_component_material_footprint-_recycle_factor,_component_production_footprint)
+    return (input_data,plastic_weight,glass_weight,metal_weight,_component_material_footprint-_recycle_factor,_component_production_footprint)
 def incoming_transport_input_1():
     st.title('Incoming Transport')
     col1,col2,col3,col4=st.columns(4)
@@ -213,7 +213,7 @@ def raw_material_user_input_2():
 
     #st.table(input_dataframe)
     
-    return (input_data,plastic,glass,metal,_component_material_footprint-_recycle_factor,_component_production_footprint)
+    return (input_data,plastic_weight,glass_weight,metal_weight,_component_material_footprint-_recycle_factor,_component_production_footprint)
 def incoming_transport_input_2():
     st.title('Incoming Transport')
     col1,col2,col3,col4=st.columns(4)
@@ -345,7 +345,7 @@ def raw_material_user_input_3():
 
     #st.table(input_dataframe)
     
-    return (input_data,plastic,glass,metal,_component_material_footprint-_recycle_factor,_component_production_footprint)
+    return (input_data,plastic_weight,glass_weight,metal_weight,_component_material_footprint-_recycle_factor,_component_production_footprint)
 def incoming_transport_input_3():
     st.title('Incoming Transport')
     col1,col2,col3,col4=st.columns(4)
