@@ -139,15 +139,24 @@ def distribution_transport_input_1():
     return (distribution_transport_input_data,_transport_footprint)
 def eol_caluclation_1(plastic,glass,metal,input_data):
     st.title('End OF Life')
-    _type_of_recycle=st.selectbox("Type of Recycle",['Unrecyclable','Noraml Recycling','Milk and Detergents'])
-    if _type_of_recycle=='Unrecyclable':
-        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][1]
-    elif  _type_of_recycle=='NoramlRecycling':
-        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][2]
-    else:
-        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][3]
     eol_lf={'Metal':0,'Plastic':'Disposal, plastics, mixture, 15.3% water, to sanitary landfill/CH S','Glass':0}
     eol_efw={'Metal':0,'Plastic':'Disposal, plastics, mixture, 15.3% water, to municipal incineration/CH S','Glass':0}
+    _type_of_recycle=st.selectbox(" Type of Recycle",['Unrecyclable','Noraml Recycling','Milk and Detergents'])
+    if _type_of_recycle=='Unrecyclable':
+        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][1]
+        
+    elif  _type_of_recycle=='Noraml Recycling':
+        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][2]
+        
+    else:
+        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][3]
+    
+
+    eol_lf_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
+    eol_efw_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
+    final_eol_value=eol_lf_value+eol_efw_value
+    st.write(final_eol_value)
+    return(final_eol_value)
 
 
 def raw_material_user_input_2():
@@ -272,15 +281,24 @@ def distribution_transport_input_2():
     return (distribution_transport_input_data,_transport_footprint)
 def eol_caluclation_2(plastic,glass,metal,input_data):
     st.title('End OF Life')
-    _type_of_recycle=st.selectbox("Type of Recycle 2",['Unrecyclable','Noraml Recycling','Milk and Detergents'])
-    if _type_of_recycle=='Unrecyclable':
-        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][1]
-    elif  _type_of_recycle=='NoramlRecycling':
-        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][2]
-    else:
-        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][3]
     eol_lf={'Metal':0,'Plastic':'Disposal, plastics, mixture, 15.3% water, to sanitary landfill/CH S','Glass':0}
     eol_efw={'Metal':0,'Plastic':'Disposal, plastics, mixture, 15.3% water, to municipal incineration/CH S','Glass':0}
+    _type_of_recycle=st.selectbox("Type of Recycle",['Unrecyclable','Noraml Recycling','Milk and Detergents'])
+    if _type_of_recycle=='Unrecyclable':
+        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][1]
+        
+    elif  _type_of_recycle=='Noraml Recycling':
+        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][2]
+        
+    else:
+        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][3]
+    
+
+    eol_lf_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
+    eol_efw_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
+    final_eol_value=eol_lf_value+eol_efw_value
+    st.write(final_eol_value)
+    return(final_eol_value)
 
 def raw_material_user_input_3():
     metal_weight=0
@@ -404,16 +422,24 @@ def distribution_transport_input_3():
     return (distribution_transport_input_data,_transport_footprint)
 def eol_caluclation_3(plastic,glass,metal,input_data):
     st.title('End OF Life')
-    _type_of_recycle=st.selectbox("Type of Recycle 3",['Unrecyclable','Noraml Recycling','Milk and Detergents'])
-    
-    if _type_of_recycle=='Unrecyclable':
-        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][1]
-    elif  _type_of_recycle=='NoramlRecycling':
-        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][2]
-    else:
-        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][3]
     eol_lf={'Metal':0,'Plastic':'Disposal, plastics, mixture, 15.3% water, to sanitary landfill/CH S','Glass':0}
     eol_efw={'Metal':0,'Plastic':'Disposal, plastics, mixture, 15.3% water, to municipal incineration/CH S','Glass':0}
+    _type_of_recycle=st.selectbox("Type of Recycle",['Unrecyclable','Noraml Recycling','Milk and Detergents '])
+    if _type_of_recycle=='Unrecyclable':
+        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][1]
+        
+    elif  _type_of_recycle=='Noraml Recycling':
+        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][2]
+        
+    else:
+        _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][3]
+    
+
+    eol_lf_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
+    eol_efw_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
+    final_eol_value=eol_lf_value+eol_efw_value
+    st.write(final_eol_value)
+    return(final_eol_value)
 
     
 
@@ -427,7 +453,7 @@ with st.expander("Input 1"):
     Manufacturing1=float(manufacturing1)*1000
     Transport1=(incoming_transport_footprint1+distribution_transport_footprint1)*1000
     Total1=Material1+Manufacturing1+Transport1
-    graph_data_1={'Category':['Material','Manufacturing','Transport'],'CO2 Equivalent in Kg':[Material1,Manufacturing1,Transport1]}
+    graph_data_1={'Category':['Material','Manufacturing','Transport','End Of Life'],'CO2 Equivalent in Kg':[Material1,Manufacturing1,Transport1,eol_1]}
     graph_data_1=pd.DataFrame(graph_data_1)
 
 with st.expander("Input 2"):
@@ -440,7 +466,7 @@ with st.expander("Input 2"):
     Manufacturing2=float(manufacturing2)*1000
     Transport2=(incoming_transport_footprint2+distribution_transport_footprint2)*1000
     Total2=Material2+Manufacturing2+Transport2
-    graph_data_2={'Category':['Material','Manufacturing','Transport'],'CO2 Equivalent in Kg':[Material2,Manufacturing2,Transport2]}
+    graph_data_2={'Category':['Material','Manufacturing','Transport','End Of Life'],'CO2 Equivalent in Kg':[Material2,Manufacturing2,Transport2,eol_2]}
     graph_data_2=pd.DataFrame(graph_data_2)
 with st.expander("Input 3"):
     raw_material_user_input3,plastic_weight3,glass_weight3,metal_weight3,material3,manufacturing3=raw_material_user_input_3()
@@ -452,7 +478,7 @@ with st.expander("Input 3"):
     Manufacturing3=float(manufacturing3)*1000
     Transport3=(incoming_transport_footprint3+distribution_transport_footprint3)*1000
     Total3=Material3+Manufacturing3+Transport3
-    graph_data_3={'Category':['Material','Manufacturing','Transport'],'CO2 Equivalent in Kg':[Material3,Manufacturing3,Transport3]}
+    graph_data_3={'Category':['Material','Manufacturing','Transport','End Of Life'],'CO2 Equivalent in Kg':[Material3,Manufacturing3,Transport3,eol_3]}
     graph_data_3=pd.DataFrame(graph_data_3)
 col30,col31,col32=st.columns(3)
 with col30:
