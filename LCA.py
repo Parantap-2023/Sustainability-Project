@@ -84,7 +84,7 @@ def raw_material_user_input():
 
     #st.table(input_dataframe)
     
-    return (input_data,plastic,glass,metal,_component_material_footprint-_recycle_factor,_component_production_footprint)
+    return (input_data,plastic_weight,glass_weight,metal_weight,_component_material_footprint-_recycle_factor,_component_production_footprint)
 def incoming_transport_input():
     st.title('Incoming Transport')
     col1,col2,col3,col4=st.columns(4)
@@ -150,32 +150,35 @@ def eol_caluclation(plastic,glass,metal,input_data):
     _type_of_recycle=st.selectbox("Type of Recycle",['Unrecyclable','Noraml Recycling','Milk and Detergents'])
     if _type_of_recycle=='Unrecyclable':
         _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][1]
-    elif  _type_of_recycle=='NoramlRecycling':
-        st.write(eol.loc[eol['Type of plastic']==input_data['component_specific_type']])
+        
+    elif  _type_of_recycle=='Noraml Recycling':
         _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][2]
+        
     else:
         _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][3]
     
-    eol_lf_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon
-    eol_efw_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon
+
+    eol_lf_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
+    eol_efw_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
     final_eol_value=eol_lf_value+eol_efw_value
     return(final_eol_value)
 raw_material_user_input_,plastic_weight,glass_weight,metal_weight,material,manufacturing=raw_material_user_input()
 incoming_transport_input_,incoming_transport_footprint=incoming_transport_input()
 distribution_transport_input_,distribution_transport_footprint=distribution_transport_input()
 eol_value=eol_caluclation(plastic_weight,glass_weight,metal_weight,raw_material_user_input_)
+st.write(eol_value)
 Material=float(material)*1000
 
 Manufacturing=float(manufacturing)*1000
 Transport=(incoming_transport_footprint+distribution_transport_footprint)*1000
-graph_data={'Category':['Material','Manufacturing','Transport'],'CO2 Equivalent in Kg':[Material,Manufacturing,Transport]}
+graph_data={'Category':['Material','Manufacturing','Transport'],'CO2 Equivalent in grs':[Material,Manufacturing,Transport]}
 graph_data=pd.DataFrame(graph_data)
 
 st.header('Overall Analysis')
 col30,col31=st.columns(2)
 with col30:
-    fig=px.bar(graph_data,x='Category', y='CO2 Equivalent in Kg',color='Category', title='CO2 Emission by Category')
+    fig=px.bar(graph_data,x='Category', y='CO2 Equivalent in grs',color='Category', title='CO2 Emission by Category')
     st.plotly_chart(fig)
 with col31:
-    fig=px.pie(graph_data,names='Category',values='CO2 Equivalent in Kg',hole=0.5,title='CO2 Emission by Category')
+    fig=px.pie(graph_data,names='Category',values='CO2 Equivalent in grs',hole=0.5,title='CO2 Emission by Category')
     st.plotly_chart(fig)
