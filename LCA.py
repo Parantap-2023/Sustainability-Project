@@ -151,7 +151,7 @@ def eol_caluclation(plastic,glass,metal,input_data):
     if _type_of_recycle=='Unrecyclable':
         _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][1]
     elif  _type_of_recycle=='NoramlRecycling':
-        st.write(eol['Type of plastic']==input_data['component_specific_type'])
+        st.write(eol.loc[eol['Type of plastic']==input_data['component_specific_type']])
         _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][2]
     else:
         _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][3]
