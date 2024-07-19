@@ -66,6 +66,7 @@ def raw_material_user_input_1():
     _component_production_footprint=(_weight_including_waste*_component_production_ef)/10000
     _recycle_factor=pcr_factors.loc[pcr_factors['Component']==_component_specific_type].values[0][1]
     st.write(_recycle_factor)
+    st.write(float(_component_material_footprint)+_component_production_footprint)
     _total_footprint=float(_component_material_footprint)+_component_production_footprint-(_recycle_factor)
     input_data={'component_name':_component_name,
                 'component_weight':_component_weight,
