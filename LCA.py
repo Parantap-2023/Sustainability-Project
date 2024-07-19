@@ -145,6 +145,7 @@ def distribution_transport_input():
     return (distribution_transport_input_data,_transport_footprint)
 def eol_caluclation(plastic,glass,metal,input_data):
     st.title('End OF Life')
+    st.table(input_data)
     eol_lf={'Metal':0,'Plastic':'Disposal, plastics, mixture, 15.3% water, to sanitary landfill/CH S','Glass':0}
     eol_efw={'Metal':0,'Plastic':'Disposal, plastics, mixture, 15.3% water, to municipal incineration/CH S','Glass':0}
     _type_of_recycle=st.selectbox("Type of Recycle",['Unrecyclable','Noraml Recycling','Milk and Detergents'])
@@ -154,6 +155,7 @@ def eol_caluclation(plastic,glass,metal,input_data):
         _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][2]
     else:
         _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][3]
+    st.write('-------------------------')
     st.write(_carbon)
     eol_lf_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon
     eol_efw_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon
