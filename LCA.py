@@ -143,7 +143,7 @@ def distribution_transport_input():
     
     #st.table(input_dataframe)
     return (distribution_transport_input_data,_transport_footprint)
-def eol_caluclation(plastic,glass,metal,input_data):
+def eol_caluclation(plastic_,glass_,metal_,input_data):
     st.title('End OF Life')
     eol_lf={'Metal':0,'Plastic':'Disposal, plastics, mixture, 15.3% water, to sanitary landfill/CH S','Glass':0}
     eol_efw={'Metal':0,'Plastic':'Disposal, plastics, mixture, 15.3% water, to municipal incineration/CH S','Glass':0}
