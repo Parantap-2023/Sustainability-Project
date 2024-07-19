@@ -156,7 +156,6 @@ def eol_caluclation_1(plastic_,glass_,metal_,input_data):
     eol_lf_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
     eol_efw_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
     final_eol_value=eol_lf_value+eol_efw_value
-    st.write(final_eol_value)
     return(final_eol_value)
 
 
@@ -298,7 +297,6 @@ def eol_caluclation_2(plastic_,glass_,metal_,input_data):
     eol_lf_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
     eol_efw_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
     final_eol_value=eol_lf_value+eol_efw_value
-    st.write(final_eol_value)
     return(final_eol_value)
 
 def raw_material_user_input_3():
@@ -439,7 +437,6 @@ def eol_caluclation_3(plastic_,glass_,metal_,input_data):
     eol_lf_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
     eol_efw_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon*plastic_
     final_eol_value=eol_lf_value+eol_efw_value
-    st.write(final_eol_value)
     return(final_eol_value)
 
     
