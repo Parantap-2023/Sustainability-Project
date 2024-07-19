@@ -154,14 +154,15 @@ def eol_caluclation(plastic,glass,metal,input_data):
         _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][2]
     else:
         _carbon=eol.loc[eol['Type of plastic']==input_data['component_specific_type']].values[0][3]
-    eol_lf_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1]+eol_data.loc[eol_data['Impact category']==eol_lf['Metal']].values[0][1])*_carbon
-    eol_efw_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1]+eol_data.loc[eol_data['Impact category']==eol_lf['Metal']].values[0][1])*_carbon
+    eol_lf_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon
+    eol_efw_value=(eol_data.loc[eol_data['Impact category']==eol_lf['Plastic']].values[0][1])*_carbon
     final_eol_value=eol_lf_value+eol_efw_value
     return(final_eol_value)
 raw_material_user_input_,plastic_weight,glass_weight,metal_weight,material,manufacturing=raw_material_user_input()
 incoming_transport_input_,incoming_transport_footprint=incoming_transport_input()
 distribution_transport_input_,distribution_transport_footprint=distribution_transport_input()
 eol=eol_caluclation(plastic_weight,glass_weight,metal_weight,raw_material_user_input_)
+st.write(eol)
 Material=float(material)*1000
 
 Manufacturing=float(manufacturing)*1000
