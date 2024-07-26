@@ -481,7 +481,7 @@ with st.expander("Input 3"):
     graph_data_3=pd.DataFrame(graph_data_3)
 col30,col31,col32,col33,col34=st.columns([1,0.1,1,0.1,1])
 with col30:
-    st.markdown("<h2 style='text-align: center;'>Scenario 3</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center;'>Scenario 1</h2>", unsafe_allow_html=True)
     with st.container(height=550):
         fig=px.bar(graph_data_1,x='Category', y='CO2 Equivalent in Kg',color='Category', title='CO2 Emission by Category')
         fig.update_layout(yaxis_title='CO2 Equivalent in grs')
@@ -502,7 +502,7 @@ with col31:
         unsafe_allow_html=True
     )
 with col32:
-    st.markdown("<h2 style='text-align: center;'>Scenario 3</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center;'>Scenario 2</h2>", unsafe_allow_html=True)
     
     with st.container(height=550):
         fig=px.bar(graph_data_2,x='Category', y='CO2 Equivalent in Kg', color='Category', title='CO2 Emission by Category')
