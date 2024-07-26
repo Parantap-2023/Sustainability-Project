@@ -487,20 +487,7 @@ with col30:
         fig.update_layout(yaxis_title='CO2 Equivalent in grs')
         fig.update_layout(width=400)
         st.plotly_chart(fig)
-with col31:
-    st.markdown(
-        """
-        <style>
-        .vertical-line {
-            border-left: 1px solid white;
-            height: 100%;
-            position: absolute;
-        }
-        </style>
-        <div class="vertical-line"></div>
-        """, 
-        unsafe_allow_html=True
-    )
+
 with col32:
     st.markdown("<h2 style='text-align: center;'>Scenario 2</h2>", unsafe_allow_html=True)
     
@@ -509,20 +496,7 @@ with col32:
         fig.update_layout(yaxis_title='CO2 Equivalent in grs')
         fig.update_layout(width=400)
         st.plotly_chart(fig)
-with col33:
-    st.markdown(
-        """
-        <style>
-        .vertical-line {
-            border-left: 1px solid white;
-            height: 100%;
-            position: absolute;
-        }
-        </style>
-        <div class="vertical-line"></div>
-        """, 
-        unsafe_allow_html=True
-    )
+
 with col34:
     st.markdown("<h2 style='text-align: center;'>Scenario 3</h2>", unsafe_allow_html=True)
     with st.container(height=550):
