@@ -65,8 +65,6 @@ def raw_material_user_input_1():
     _component_material_footprint=(_weight_including_waste*_component_ef*int(_component_pcr_factor[0:2]))/100000
     _component_production_footprint=(_weight_including_waste*_component_production_ef)/1000
     _recycle_factor=(pcr_factors.loc[pcr_factors['Component']==_component_specific_type].values[0][1]/1000)*(int(_component_pcr_factor[0:2])*_weight_including_waste/100)
-    st.write( _component_material_footprint)
-    st.write( _recycle_factor)
     _total_footprint=float(_component_material_footprint)+_component_production_footprint+(_recycle_factor)
     input_data={'component_name':_component_name,
                 'component_weight':_component_weight,
@@ -208,8 +206,7 @@ def raw_material_user_input_2():
     _component_material_footprint=(_weight_including_waste*_component_ef*int(_component_pcr_factor[0:2]))/100000
     _component_production_footprint=(_weight_including_waste*_component_production_ef)/1000
     _recycle_factor=(pcr_factors.loc[pcr_factors['Component']==_component_specific_type].values[0][1]/1000)*(int(_component_pcr_factor[0:2])*_weight_including_waste/100)
-    st.write( _component_material_footprint)
-    st.write( _recycle_factor)
+
     _total_footprint=float(_component_material_footprint)+_component_production_footprint+(_recycle_factor)
     input_data={'component_name':_component_name,
                 'component_weight':_component_weight,
@@ -319,7 +316,7 @@ def raw_material_user_input_3():
     with col4:
         if _component_type=='Plastic':
             plastic_weight=plastic_weight+_component_weight
-            _component_specific_type=st.selectbox("Specific Component 3",plastic)
+            _component_specific_type=st.selectbox("Specific Component 3",plastic,index='HDPE')
             _component_ef=plastic.loc[plastic['Impact category'] == str(_component_specific_type)].values[0][1]
         elif _component_type=='Glass':
             glass_weight=glass_weight+_component_weight
@@ -350,8 +347,7 @@ def raw_material_user_input_3():
         _component_material_footprint=(_weight_including_waste*_component_ef*int(_component_pcr_factor[0:2]))/100000
         _component_production_footprint=(_weight_including_waste*_component_production_ef)/1000
         _recycle_factor=(pcr_factors.loc[pcr_factors['Component']==_component_specific_type].values[0][1]/1000)*(int(_component_pcr_factor[0:2])*_weight_including_waste/100)
-        st.write( _component_material_footprint)
-        st.write( _recycle_factor)
+        
         _total_footprint=float(_component_material_footprint)+_component_production_footprint+(_recycle_factor)
         input_data={'component_name':_component_name,
                     'component_weight':_component_weight,
