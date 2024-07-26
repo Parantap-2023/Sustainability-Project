@@ -333,7 +333,7 @@ def raw_material_user_input_3():
     col9,col10,col11,col12=st.columns(4)
     with col7:
         if _component_type=='Plastic':
-            _component_manufaturing_process=st.selectbox("Manufacturing Process 3",plastic_processing)
+            _component_manufaturing_process=st.selectbox("Manufacturing Process 3",plastic_processing,index=3)
             _component_production_ef=plastic_processing.loc[plastic_processing['Impact category'] == _component_manufaturing_process].values[0][1]
         elif _component_type=='Glass':
             _component_manufaturing_process=st.selectbox("Manufacturing Process 3",[])
