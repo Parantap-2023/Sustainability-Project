@@ -34,15 +34,15 @@ def raw_material_user_input_1():
     with col4:
         if _component_type=='Plastic':
             plastic_weight=plastic_weight+_component_weight
-            _component_specific_type=st.selectbox("Specific Component",plastic)
+            _component_specific_type=st.selectbox("Specific Component",plastic,index=10)
             _component_ef=plastic.loc[plastic['Impact category'] == str(_component_specific_type)].values[0][1]
         elif _component_type=='Glass':
             glass_weight=glass_weight+_component_weight
-            _component_specific_type=st.selectbox("Specific Component",glass)
+            _component_specific_type=st.selectbox("Specific Component",glass,index=10)
             _component_ef=glass.loc[glass['Impact category'] == _component_specific_type].values[0][1]
         else:
             metal_weight=metal_weight+_component_weight
-            _component_specific_type=st.selectbox("Specific Component",metal)
+            _component_specific_type=st.selectbox("Specific Component",metal,index=10)
             _component_ef=metal.loc[metal['Impact category'] == _component_specific_type].values[0][1]
     with col5:
         _component_recycle=st.selectbox("Recycle",['Yes','No'])
@@ -51,13 +51,13 @@ def raw_material_user_input_1():
     col9,col10,col11,col12=st.columns(4)
     with col7:
         if _component_type=='Plastic':
-            _component_manufaturing_process=st.selectbox("Manufacturing Process",plastic_processing)
+            _component_manufaturing_process=st.selectbox("Manufacturing Process",plastic_processing,index=0)
             _component_production_ef=plastic_processing.loc[plastic_processing['Impact category'] == _component_manufaturing_process].values[0][1]
         elif _component_type=='Glass':
             _component_manufaturing_process=st.selectbox("Manufacturing Process",[])
             _component_production_ef=plastic_processing.loc[plastic_processing['Impact category'] == _component_manufaturing_process].values[0][1]
         if _component_type=='Metal':
-            _component_manufaturing_process=st.selectbox("Manufacturing Process",metal_processing)
+            _component_manufaturing_process=st.selectbox("Manufacturing Process",metal_processing,index=0)
             _component_production_ef=metal_processing.loc[metal_processing['Impact category'] == _component_manufaturing_process].values[0][1]
     with col8:
         _wastage=st.number_input("Waste Percent",value=10)
@@ -90,7 +90,7 @@ def incoming_transport_input_1():
     with col2:
         _incoming_transport_weight=st.number_input("Incoming Transport Weight",value=100)
     with col3:
-        _transport_type=st.selectbox("Material Type",transport['Impact category'].values)
+        _transport_type=st.selectbox("Material Type",transport['Impact category'].values,index=0)
     col5,col6,col7,col8=st.columns(4)
     with col4:
         _distance=st.number_input("Incoming Frieght Distance",value=100)
@@ -118,7 +118,7 @@ def distribution_transport_input_1():
     with col2:
         _incoming_transport_weight=st.number_input("Distribution Transport Weight",value=100)
     with col3:
-        _transport_type=st.selectbox("Transport Type",transport['Impact category'].values)
+        _transport_type=st.selectbox("Transport Type",transport['Impact category'].values,index=1)
     col5,col6,col7,col8=st.columns(4)
     with col4:
         _distance=st.number_input("Distribution Frieght Distance",value=100)
@@ -175,7 +175,7 @@ def raw_material_user_input_2():
     with col4:
         if _component_type=='Plastic':
             plastic_weight=plastic_weight+_component_weight
-            _component_specific_type=st.selectbox("Specific Component 2",plastic)
+            _component_specific_type=st.selectbox("Specific Component 2",plastic,index=3)
             _component_ef=plastic.loc[plastic['Impact category'] == str(_component_specific_type)].values[0][1]
         elif _component_type=='Glass':
             glass_weight=glass_weight+_component_weight
@@ -192,7 +192,7 @@ def raw_material_user_input_2():
     col9,col10,col11,col12=st.columns(4)
     with col7:
         if _component_type=='Plastic':
-            _component_manufaturing_process=st.selectbox("Manufacturing Process 2",plastic_processing)
+            _component_manufaturing_process=st.selectbox("Manufacturing Process 2",plastic_processing,index=2)
             _component_production_ef=plastic_processing.loc[plastic_processing['Impact category'] == _component_manufaturing_process].values[0][1]
         elif _component_type=='Glass':
             _component_manufaturing_process=st.selectbox("Manufacturing Process 2",[])
@@ -232,7 +232,7 @@ def incoming_transport_input_2():
     with col2:
         _incoming_transport_weight=st.number_input("Incoming Transport Weight 2",value=100)
     with col3:
-        _transport_type=st.selectbox("Material Type 2",transport['Impact category'].values)
+        _transport_type=st.selectbox("Material Type 2",transport['Impact category'].values,index=3)
     col5,col6,col7,col8=st.columns(4)
     with col4:
         _distance=st.number_input("Incoming Frieght Distance 2",value=100)
@@ -260,7 +260,7 @@ def distribution_transport_input_2():
     with col2:
         _incoming_transport_weight=st.number_input("Distribution Transport Weight 2",value=100)
     with col3:
-        _transport_type=st.selectbox("Transport Type 2",transport['Impact category'].values)
+        _transport_type=st.selectbox("Transport Type 2",transport['Impact category'].values,index=3)
     col5,col6,col7,col8=st.columns(4)
     with col4:
         _distance=st.number_input("Distribution Frieght Distance 2",value=100)
@@ -316,7 +316,7 @@ def raw_material_user_input_3():
     with col4:
         if _component_type=='Plastic':
             plastic_weight=plastic_weight+_component_weight
-            _component_specific_type=st.selectbox("Specific Component 3",plastic,index='HDPE')
+            _component_specific_type=st.selectbox("Specific Component 3",plastic,index=12)
             _component_ef=plastic.loc[plastic['Impact category'] == str(_component_specific_type)].values[0][1]
         elif _component_type=='Glass':
             glass_weight=glass_weight+_component_weight
@@ -373,7 +373,7 @@ def incoming_transport_input_3():
     with col2:
         _incoming_transport_weight=st.number_input("Incoming Transport Weight 3",value=100)
     with col3:
-        _transport_type=st.selectbox("Material Type 3",transport['Impact category'].values)
+        _transport_type=st.selectbox("Material Type 3",transport['Impact category'].values,index=5)
     col5,col6,col7,col8=st.columns(4)
     with col4:
         _distance=st.number_input("Incoming Frieght Distance 3",value=100)
@@ -401,7 +401,7 @@ def distribution_transport_input_3():
     with col2:
         _incoming_transport_weight=st.number_input("Distribution Transport Weight 3",value=100)
     with col3:
-        _transport_type=st.selectbox("Transport Type 3",transport['Impact category'].values)
+        _transport_type=st.selectbox("Transport Type 3",transport['Impact category'].values,index=5)
     col5,col6,col7,col8=st.columns(4)
     with col4:
         _distance=st.number_input("Distribution Frieght Distance 3",value=100)
