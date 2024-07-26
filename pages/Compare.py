@@ -482,7 +482,7 @@ with st.expander("Input 3"):
 col30,col31,col32=st.columns(3)
 with col30:
     st.header("Scenario 1")
-    with st.container(border=True):
+    with st.container(height=300):
         fig=px.bar(graph_data_1,x='Category', y='CO2 Equivalent in Kg',color='Category', title='CO2 Emission by Category')
         fig.update_layout(yaxis_title='CO2 Equivalent in grs')
         fig.update_layout(width=400)
