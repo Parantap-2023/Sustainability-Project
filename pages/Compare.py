@@ -62,9 +62,9 @@ def raw_material_user_input_1():
     with col8:
         _wastage=st.number_input("Waste Percent",value=10)
     _weight_including_waste=(_wastage+1)*_component_weight
-    _component_material_footprint=(_weight_including_waste*_component_ef)/10000
-    _component_production_footprint=(_weight_including_waste*_component_production_ef)/10000
-    _recycle_factor=pcr_factors.loc[pcr_factors['Component']==_component_specific_type].values[0][1]*int(_component_pcr_factor[0:2])
+    _component_material_footprint=(_weight_including_waste*_component_ef*int(_component_pcr_factor[0:2]))/100000
+    _component_production_footprint=(_weight_including_waste*_component_production_ef)/1000
+    _recycle_factor=(pcr_factors.loc[pcr_factors['Component']==_component_specific_type].values[0][1]/1000)*(int(_component_pcr_factor[0:2])*_weight_including_waste/100)
     st.write( _component_material_footprint)
     st.write( _recycle_factor)
     _total_footprint=float(_component_material_footprint)+_component_production_footprint-(_recycle_factor)
@@ -82,7 +82,7 @@ def raw_material_user_input_1():
 
     #st.table(input_dataframe)
     
-    return (input_data,plastic_weight,glass_weight,metal_weight,_component_material_footprint-_recycle_factor,_component_production_footprint)
+    return (input_data,plastic_weight,glass_weight,metal_weight,_component_material_footprint+_recycle_factor,_component_production_footprint)
 def incoming_transport_input_1():
     st.title('Incoming Transport')
     col1,col2,col3,col4=st.columns(4)
@@ -205,8 +205,8 @@ def raw_material_user_input_2():
     with col8:
         _wastage=st.number_input("Waste Percent 2",value=10)
     _weight_including_waste=(_wastage+1)*_component_weight
-    _component_material_footprint=(_weight_including_waste*_component_ef)/10000
-    _component_production_footprint=(_weight_including_waste*_component_production_ef)/10000
+    _component_material_footprint=(_weight_including_waste*_component_ef)/1000
+    _component_production_footprint=(_weight_including_waste*_component_production_ef)/1000
     _recycle_factor=pcr_factors.loc[pcr_factors['Component']==_component_specific_type].values[0][1]*int(_component_pcr_factor[0:2])
     _total_footprint=float(_component_material_footprint)+_component_production_footprint-(_recycle_factor)
     input_data={'component_name':_component_name,
@@ -345,8 +345,8 @@ def raw_material_user_input_3():
     with col8:
         _wastage=st.number_input("Waste Percent 3",value=10)
     _weight_including_waste=(_wastage+1)*_component_weight
-    _component_material_footprint=(_weight_including_waste*_component_ef)/10000
-    _component_production_footprint=(_weight_including_waste*_component_production_ef)/10000
+    _component_material_footprint=(_weight_including_waste*_component_ef)/1000
+    _component_production_footprint=(_weight_including_waste*_component_production_ef)/1000
     _recycle_factor=pcr_factors.loc[pcr_factors['Component']==_component_specific_type].values[0][1]*int(_component_pcr_factor[0:2])
     _total_footprint=float(_component_material_footprint)+_component_production_footprint-(_recycle_factor)
     input_data={'component_name':_component_name,
