@@ -479,7 +479,7 @@ with st.expander("Input 3"):
     Total3=Material3+Manufacturing3+Transport3
     graph_data_3={'Category':['Material','Manufacturing','Transport','End Of Life'],'CO2 Equivalent in Kg':[Material3,Manufacturing3,Transport3,eol_3]}
     graph_data_3=pd.DataFrame(graph_data_3)
-col30,col31,col32,col33=st.columns([1,0.1,1,0.1,1])
+col30,col31,col32,col33,col34=st.columns([1,0.1,1,0.1,1])
 with col30:
     st.markdown("<h2 style='text-align: center;'>Scenario 3</h2>", unsafe_allow_html=True)
     with st.container(height=550):
@@ -509,7 +509,7 @@ with col32:
         fig.update_layout(yaxis_title='CO2 Equivalent in grs')
         fig.update_layout(width=400)
         st.plotly_chart(fig)
-with col32:
+with col33:
     st.markdown(
         """
         <style>
@@ -523,7 +523,7 @@ with col32:
         """, 
         unsafe_allow_html=True
     )
-with col33:
+with col34:
     st.markdown("<h2 style='text-align: center;'>Scenario 3</h2>", unsafe_allow_html=True)
     with st.container(height=550):
         fig=px.histogram(graph_data_3,x='Category', y='CO2 Equivalent in Kg',color='Category', title='CO2 Emission by Category')
