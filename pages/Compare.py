@@ -480,37 +480,25 @@ with st.expander("Input 3"):
     graph_data_3=pd.DataFrame(graph_data_3)
 col30,col31,col32=st.columns(3)
 with col30:
-    st.header("Input 1")
-    with st.expander(" Show Data"):
-        st.table(pd.DataFrame(raw_material_user_input1,index=[0]))
-        st.table(pd.DataFrame(incoming_transport_input1,index=[0]))
-        st.table(pd.DataFrame(distribution_transport_input1,index=[0]))
-        st.table(graph_data_1)
+    st.header("Scenario 1")
+    
     fig=px.bar(graph_data_1,x='Category', y='CO2 Equivalent in Kg',color='Category', title='CO2 Emission by Category')
     fig.update_layout(width=400)
     st.plotly_chart(fig)
 with col31:
-    st.header("Input 2")
-    with st.expander("Show Data"):
-        st.table(pd.DataFrame(raw_material_user_input2,index=[0]))
-        st.table(pd.DataFrame(incoming_transport_input2,index=[0]))
-        st.table(pd.DataFrame(distribution_transport_input2,index=[0]))
-        st.table(graph_data_2)
+    st.header("Scenario 2")
+    
 
     fig=px.bar(graph_data_2,x='Category', y='CO2 Equivalent in Kg', color='Category', title='CO2 Emission by Category')
     fig.update_layout(width=400)
     st.plotly_chart(fig)
 with col32:
-    st.header("Input 3")
-    with st.expander("Show Data "):
-        st.table(pd.DataFrame(raw_material_user_input3,index=[0]))
-        st.table(pd.DataFrame(incoming_transport_input3,index=[0]))
-        st.table(pd.DataFrame(distribution_transport_input3,index=[0]))
-        st.table(graph_data_3)
+    st.header("Scenario 3")
+    
     fig=px.histogram(graph_data_3,x='Category', y='CO2 Equivalent in Kg',color='Category', title='CO2 Emission by Category')
     fig.update_layout(width=400)
     st.plotly_chart(fig)
-overall_data={"Input Type":['Input 1','Input 2','Input 3'],
+overall_data={"Input Type":['Scenario 1','Scenario 2','Scenario 3'],
               'Specific Component':[raw_material_user_input1['component_specific_type'],raw_material_user_input2['component_specific_type'],raw_material_user_input3['component_specific_type']],
               'Processing Process':[raw_material_user_input1['component_manufaturing_process'],raw_material_user_input2['component_manufaturing_process'],raw_material_user_input3['component_manufaturing_process']],
               'Transport Type':[incoming_transport_input1['transport_type']+ ' & ' +distribution_transport_input1['transport_type'],incoming_transport_input2['transport_type']+ ' & ' +distribution_transport_input2['transport_type'],incoming_transport_input3['transport_type']+ ' & ' +distribution_transport_input3['transport_type']],
@@ -520,14 +508,13 @@ overall_data={"Input Type":['Input 1','Input 2','Input 3'],
               'Total':[Total1,Total2,Total3]
               }
 st.write(pd.DataFrame(overall_data))
-col40,col41=st.columns(2)
-with col40:
-    fig1=px.bar(overall_data,x='Specific Component',y=['Material'],color='Input Type',barmode='stack',title='Material Analysis')
-    fig1.update_layout(yaxis_title='CO2 Equivalent in Kg')
-    st.plotly_chart(fig1)
-with col41:
-    fig2=px.bar(overall_data,x='Input Type',y=['Manufacturing'],color='Processing Process',barmode='stack',title='Manufatruing Analysis')
-    fig2.update_layout(yaxis_title='CO2 Equivalent in Kg')
-    st.plotly_chart(fig2)
+
+fig1=px.bar(overall_data,x='Specific Component',y=['Material'],color='Input Type',barmode='stack',title='Material Analysis')
+fig1.update_layout(yaxis_title='CO2 Equivalent in Kg')
+st.plotly_chart(fig1)
+
+fig2=px.bar(overall_data,x='Input Type',y=['Manufacturing'],color='Processing Process',barmode='stack',title='Manufatruing Analysis')
+fig2.update_layout(yaxis_title='CO2 Equivalent in Kg')
+st.plotly_chart(fig2)
 fig3=px.bar(overall_data,x='Input Type',y=['Transport'],color='Transport Type',barmode='stack',title='Transport Analysis')
 st.plotly_chart(fig3)
