@@ -496,7 +496,7 @@ with col31:
         fig.update_layout(width=400)
         st.plotly_chart(fig)
 with col32:
-    st.header("Scenario 3")
+    st.markdown("<h1 style='text-align: center;'>Scenario 3</h1>", unsafe_allow_html=True)
     with st.container(height=550):
         fig=px.histogram(graph_data_3,x='Category', y='CO2 Equivalent in Kg',color='Category', title='CO2 Emission by Category')
         fig.update_layout(width=400)
