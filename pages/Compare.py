@@ -484,19 +484,21 @@ with col30:
     st.header("Scenario 1")
     
     fig=px.bar(graph_data_1,x='Category', y='CO2 Equivalent in grs',color='Category', title='CO2 Emission by Category')
+    fig.update_layout(yaxis_title='CO2 Equivalent in grs')
     fig.update_layout(width=400)
     st.plotly_chart(fig)
 with col31:
     st.header("Scenario 2")
     
 
-    fig=px.bar(graph_data_2,x='Category', y='CO2 Equivalent in grs', color='Category', title='CO2 Emission by Category')
+    fig=px.bar(graph_data_2,x='Category', y='CO2 Equivalent in Kg', color='Category', title='CO2 Emission by Category')
+    fig.update_layout(yaxis_title='CO2 Equivalent in grs')
     fig.update_layout(width=400)
     st.plotly_chart(fig)
 with col32:
     st.header("Scenario 3")
     
-    fig=px.histogram(graph_data_3,x='Category', y='CO2 Equivalent in grs',color='Category', title='CO2 Emission by Category')
+    fig=px.histogram(graph_data_3,x='Category', y='CO2 Equivalent in Kg',color='Category', title='CO2 Emission by Category')
     fig.update_layout(width=400)
     st.plotly_chart(fig)
 overall_data={"Input Type":['Scenario 1','Scenario 2','Scenario 3'],
