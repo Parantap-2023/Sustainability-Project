@@ -344,30 +344,30 @@ def raw_material_user_input_3():
         if _component_type=='Metal':
             _component_manufaturing_process=st.selectbox("Manufacturing Process 3",metal_processing)
             _component_production_ef=metal_processing.loc[metal_processing['Impact category'] == _component_manufaturing_process].values[0][1]
-    with col8:
+    with col8: 
         _wastage=st.number_input("Waste Percent 3",value=10)
-     _weight_including_waste=(_wastage+1)*_component_weight
-    _component_material_footprint=(_weight_including_waste*_component_ef*int(_component_pcr_factor[0:2]))/100000
-    _component_production_footprint=(_weight_including_waste*_component_production_ef)/1000
-    _recycle_factor=(pcr_factors.loc[pcr_factors['Component']==_component_specific_type].values[0][1]/1000)*(int(_component_pcr_factor[0:2])*_weight_including_waste/100)
-    st.write( _component_material_footprint)
-    st.write( _recycle_factor)
-    _total_footprint=float(_component_material_footprint)+_component_production_footprint+(_recycle_factor)
-    input_data={'component_name':_component_name,
-                'component_weight':_component_weight,
-                'component_type':_component_type,
-                'component_specific_type':_component_specific_type,
-                'component_recycle':_component_recycle,
-                'component_pcr_factor':_component_pcr_factor,
-                'component_manufaturing_process':_component_manufaturing_process,
-                'wastage':_wastage}
-    prediction={'weight_including_waste':_weight_including_waste,'component_material_footprint':_component_material_footprint,'component_production_footprint':_component_production_footprint,'recycle_facto':_recycle_factor,'total_footprint':_total_footprint}
-    input_dataframe=pd.DataFrame(input_data,index=[0])
-    prediction_dataframe=pd.DataFrame(prediction,index=[0])
-
-    #st.table(input_dataframe)
+        _weight_including_waste=(_wastage+1)*_component_weight
+        _component_material_footprint=(_weight_including_waste*_component_ef*int(_component_pcr_factor[0:2]))/100000
+        _component_production_footprint=(_weight_including_waste*_component_production_ef)/1000
+        _recycle_factor=(pcr_factors.loc[pcr_factors['Component']==_component_specific_type].values[0][1]/1000)*(int(_component_pcr_factor[0:2])*_weight_including_waste/100)
+        st.write( _component_material_footprint)
+        st.write( _recycle_factor)
+        _total_footprint=float(_component_material_footprint)+_component_production_footprint+(_recycle_factor)
+        input_data={'component_name':_component_name,
+                    'component_weight':_component_weight,
+                    'component_type':_component_type,
+                    'component_specific_type':_component_specific_type,
+                    'component_recycle':_component_recycle,
+                    'component_pcr_factor':_component_pcr_factor,
+                    'component_manufaturing_process':_component_manufaturing_process,
+                    'wastage':_wastage}
+        prediction={'weight_including_waste':_weight_including_waste,'component_material_footprint':_component_material_footprint,'component_production_footprint':_component_production_footprint,'recycle_facto':_recycle_factor,'total_footprint':_total_footprint}
+        input_dataframe=pd.DataFrame(input_data,index=[0])
+        prediction_dataframe=pd.DataFrame(prediction,index=[0])
     
-    return (input_data,plastic_weight,glass_weight,metal_weight,_component_material_footprint+_recycle_factor,_component_production_footprint)
+        #st.table(input_dataframe)
+    
+        return (input_data,plastic_weight,glass_weight,metal_weight,_component_material_footprint+_recycle_factor,_component_production_footprint)
 def incoming_transport_input_3():
     st.title('Incoming Transport')
     col1,col2,col3,col4=st.columns(4)
