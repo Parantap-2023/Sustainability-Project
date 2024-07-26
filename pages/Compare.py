@@ -492,7 +492,7 @@ with col31:
         """
         <style>
         .vertical-line {
-            border-left: 1px solid #000;
+            border-left: 1px solid white;
             height: 100%;
             position: absolute;
         }
@@ -514,7 +514,7 @@ with col33:
         """
         <style>
         .vertical-line {
-            border-left: 1px solid #000;
+            border-left: 1px solid white;
             height: 100%;
             position: absolute;
         }
